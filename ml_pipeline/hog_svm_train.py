@@ -1,0 +1,1 @@
+# TODO: Implement HOG + SVM training pipeline

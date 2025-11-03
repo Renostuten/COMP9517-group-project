@@ -1,0 +1,17 @@
+# Requirements for YOLOv8 training pipeline (minimal set)
+# Note: Install a compatible PyTorch build for your CUDA first (see https://pytorch.org/get-started/locally/).
+# Example (adjust for your CUDA):
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+ultralytics>=8.0.0
+opencv-python
+matplotlib
+pandas
+albumentations
+tqdm
+scikit-learn
+tensorboard
+
+# Optional utilities that can be useful
+# regex for robust string handling
+regex

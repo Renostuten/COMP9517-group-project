@@ -20,9 +20,9 @@ pip install -r requirements.txt
 
 2. Validate your dataset (optional but recommended):
 ```bash
-python scripts/validate_labels.py --data-dir data --split train
-python scripts/validate_labels.py --data-dir data --split valid
-python scripts/validate_labels.py --data-dir data --split test
+python3 scripts/validate_labels.py --data-dir data --split train
+python3 scripts/validate_labels.py --data-dir data --split valid
+python3 scripts/validate_labels.py --data-dir data --split test
 ```
 
 Please note that the slug-282 training label files are empty by default so the validation script will flag those files as empty.

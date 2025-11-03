@@ -1,0 +1,7 @@
+runs/
+yolo11n.pt
+yolov8n.pt
+data/train/labels.cache
+data/valid/labels.cache
+dl_pipeline/.ipynb_checkpoints/
+ml_pipeline/.ipynb_checkpoints/

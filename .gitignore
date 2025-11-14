@@ -7,3 +7,15 @@ env/
 
 .vscode/
 .idea/
+
+.ipynb_checkpoints/
+
+# logs
+*.log
+
+# experiment outputs
+ml_pipeline/saved_models/
+ml_pipeline/cache_experiments/
+
+# jupyter
+*.ipynb_checkpoints/

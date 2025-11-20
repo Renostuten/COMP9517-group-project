@@ -13,7 +13,6 @@ This directory contains the traditional machine learning implementation for the 
     - [Cell 4: Detector Module](#cell-4-detector-module)
     - [Cell 5: Main Execution (Training)](#cell-5-main-execution-training)
     - [Cell 6: Evaluation & Visualisation](#cell-6-evaluation--visualisation)
-- [Results Interpretation](#results-interpretation)
 
 ---
 

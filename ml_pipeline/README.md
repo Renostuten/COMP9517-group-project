@@ -49,14 +49,14 @@ The notebook is designed to be run sequentially. Below is a detailed guide for e
 
 | Dictionary | Parameter | Default | Description |
 |:---|:---|:---|:---|
-| `CLF_CONFIG` | `K_VOCAB_SIZE` | `800` | Number of clusters for BoVW. Higher = more detailed texture features. |
-| `CLF_CONFIG` | `SIFT_STEP` | `16` | Step size for dense SIFT. Lower (e.g., 8) = finer detail but slower. |
-| `CLF_CONFIG` | `C` | `2.0` | SVM Regularization. Higher = stricter margin (risk of overfitting). |
-| `CLF_CONFIG` | `W_BOVW` | `1.0` | Weight importance for SIFT texture features. |
-| `CLF_CONFIG` | `W_COLOR` | `1.0` | Weight importance for Color Histogram features. |
-| `DETECTOR` | `DET_SCORE_THRESH` | `0.5` | Confidence threshold for the binary detector to accept a box. |
-| `SAMPLING` | `TRAIN_MAX_IMAGES` | `11000` | Max images to use for training (Lower this if memory is full). |
-| `SAMPLING` | `MAX_POS_PER_IMG` | `50` | Max insect crops to extract per image during training. |
+| `CLF_CONFIG` | `K_VOCAB_SIZE` | `800` | Number of clusters for BoVW. Higher = more detailed texture features |
+| `CLF_CONFIG` | `SIFT_STEP` | `16` | Step size for dense SIFT. Lower = finer detail but slower |
+| `CLF_CONFIG` | `C` | `2.0` | SVM Regularization. Higher = stricter margin (risk of overfitting) |
+| `CLF_CONFIG` | `W_BOVW` | `1.0` | Weight importance for SIFT texture features |
+| `CLF_CONFIG` | `W_COLOR` | `1.0` | Weight importance for Color Histogram features |
+| `DETECTOR` | `DET_SCORE_THRESH` | `0.5` | Confidence threshold for the binary detector to accept a box |
+| `SAMPLING` | `TRAIN_MAX_IMAGES` | `11000` | Max images to use for training (Lower this if memory is full) |
+| `SAMPLING` | `MAX_POS_PER_IMG` | `50` | Max insect crops to extract per image during training |
 
 **Path Setup:**
 Ensure `DATA_DIR` points to your dataset root. The expected structure is:
@@ -131,7 +131,7 @@ Ensure `DATA_DIR` points to your dataset root. The expected structure is:
     * Trains the Multi-class SVM.
 2.  **Detector Training**:
     * Builds a dataset of Positives (Insects) and Negatives (Background).
-    * Trains the **LinearSVC** for fast binary classification.
+    * Trains the LinearSVC for fast binary classification.
 
 
 **Expected Console Output:**
@@ -158,19 +158,19 @@ Training Detector SVM
 ```
 ### Cell 6: Evaluation & Visualisation
 
-**Purpose:** Evaluates the full pipeline on the **Test Set** and visualizes the detection results.
+**Purpose:** Evaluates the full pipeline on the Test Set and visualizes the detection results.
 
 **Evaluation Process (`evaluate_full_system`):**
 1.  **Load Data**: Iterates through all images in the Test set.
-2.  **Detection**: Runs the **Region Proposal + Binary Detector** to find potential insect boxes.
-3.  **Classification**: Passes the detected boxes to the **Species Classifier** to predict the insect type.
+2.  **Detection**: Runs the Region Proposal + Binary Detector to find potential insect boxes.
+3.  **Classification**: Passes the detected boxes to the Species Classifier to predict the insect type.
 4.  **Matching**: Compares predictions with Ground Truth boxes using an IoU threshold of 0.5.
-5.  **Metrics**: Computes **mAP (Mean Average Precision)** and per-class **Precision, Recall, and F1-Score**.
+5.  **Metrics**: Computes mAP (Mean Average Precision) and per-class Precision, Recall, and F1-Score*
 
 **Expected Console Output:**
 
 1.  **Progress Bar**: A `tqdm` progress bar showing the evaluation status across all test images.
-2.  **Performance Table**: A detailed text table displaying the following metrics for **each of the 12 insect classes**:
+2.  **Performance Table**: A detailed text table displaying the following metrics for each of the 12 insect classes
     * **Precision, Recall, F1-Score**: Classification metrics.
     * **TP (True Positive)**: Count of correctly detected insects.
     * **FP (False Positive)**: Count of incorrect detections.
@@ -178,7 +178,7 @@ Training Detector SVM
 3.  **Final Scores**:
     * **Macro Average**: Average performance across all classes.
     * **mAP@0.50**: The final Mean Average Precision score at IoU 0.5.
-4.  **Visualizations (Plots)**:
+4.  **Visualizations**:
     * The code will display random test images with bounding boxes overlaid.
     * **Green Boxes**: Represent correct predictions (Correct location & Correct species).
     * **Red Boxes**: Represent errors (Background detected as insect or Wrong species prediction).

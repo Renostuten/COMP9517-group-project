@@ -19,3 +19,10 @@ ml_pipeline/cache_experiments/
 
 # jupyter
 *.ipynb_checkpoints/
+runs/
+*.pt
+*.pth
+data/train/labels.cache
+data/valid/labels.cache
+dl_pipeline/.ipynb_checkpoints/
+ml_pipeline/.ipynb_checkpoints/
